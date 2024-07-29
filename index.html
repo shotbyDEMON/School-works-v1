@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Futuristic GUI</title>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">School works V1 - Zeke</div>
+        <nav class="nav">
+            <a href="#" class="nav-link">Home</a>
+            <a href="#" class="nav-link">About</a>
+            <a href="#" class="nav-link">Services</a>
+            <a href="#" class="nav-link">Contact</a>
+        </nav>
+        <div class="profile">
+            <img src="profile.jpg" alt="Profile" class="profile-img">
+        </div>
+    </header>
+    
+    <div class="sidebar">
+        <a href="#" class="sidebar-link">Main</a>
+        <a href="#" class="sidebar-link">Blooket</a>
+        <a href="#" class="sidebar-link">Settings</a>
+    </div>
+    
+    <main class="main-content">
+        <h1>Welcome to School works V1 - Zeke</h1>
+        <p>This GUI is designed with vibrant neon colors and modern design elements.</p>
+        <div class="cards">
+            <div class="card">Card 1</div>
+            <div class="card">Card 2</div>
+            <div class="card">Card 3</div>
+        </div>
+        
+        <section class="settings">
+            <h2>Settings</h2>
+            <div class="settings-options">
+                <label for="primary-color-picker">Primary Color:</label>
+                <input type="color" id="primary-color-picker" value="#1DB954" onchange="changePrimaryColor(this.value)">
+                
+                <label for="secondary-color-picker">Secondary Color:</label>
+                <input type="color" id="secondary-color-picker" value="#1E90FF" onchange="changeSecondaryColor(this.value)">
+            </div>
+        </section>
+    </main>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
