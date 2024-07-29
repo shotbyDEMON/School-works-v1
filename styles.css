@@ -16,6 +16,39 @@ body, html {
     overflow-x: hidden;
 }
 
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 80%;
+    max-width: 600px;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: var(--border-radius);
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    z-index: 1000;
+}
+
+.popup-header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    cursor: move;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.popup-content {
+    padding: 20px;
+}
+
+.header, .nav, .profile, .sidebar, .main-content, .cards, .card, .settings, .settings-options {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 .header {
     display: flex;
     justify-content: space-between;
@@ -23,10 +56,6 @@ body, html {
     padding: 20px;
     background: rgba(0, 0, 0, 0.7);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
     backdrop-filter: blur(10px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
@@ -82,11 +111,6 @@ body, html {
 }
 
 .sidebar {
-    position: fixed;
-    left: 0;
-    top: 80px;
-    width: 250px;
-    height: calc(100% - 80px);
     background: rgba(30, 30, 30, 0.9);
     padding-top: 20px;
     display: flex;
@@ -112,8 +136,7 @@ body, html {
 }
 
 .main-content {
-    margin-left: 270px;
-    padding: 100px 20px 20px;
+    padding: 20px;
 }
 
 .cards {
@@ -150,30 +173,9 @@ body, html {
 }
 
 @media (max-width: 768px) {
-    .header {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 10px;
-    }
-
-    .nav {
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    .sidebar {
-        width: 100%;
+    .popup {
+        width: 90%;
         height: auto;
-        position: relative;
-        flex-direction: row;
-        justify-content: space-around;
-        top: auto;
-        border-right: none;
-        border-top: 1px solid rgba(255, 255, 255, 0.2);
-    }
-
-    .main-content {
-        margin-left: 0;
-        padding: 80px 20px;
     }
 }
+
