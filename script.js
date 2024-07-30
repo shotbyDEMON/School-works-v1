@@ -1,14 +1,11 @@
-// Make the DIV element draggable
+// Make the GUI draggable
 dragElement(document.getElementById("gui"));
 
 function dragElement(elmnt) {
   var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
-  if (document.getElementById("titleBar")) {
-    // Move the DIV from the title bar
-    document.getElementById("titleBar").onmousedown = dragMouseDown;
-  } else {
-    // Move the DIV from anywhere inside the DIV
-    elmnt.onmousedown = dragMouseDown;
+  const titleBar = document.getElementById("titleBar");
+  if (titleBar) {
+    titleBar.onmousedown = dragMouseDown;
   }
 
   function dragMouseDown(e) {
@@ -41,5 +38,3 @@ function dragElement(elmnt) {
 document.getElementById('closeBtn').onclick = function() {
     document.getElementById('overlay').style.display = 'none';
 };
-
-// Optionally, add more interactive features and effects here
