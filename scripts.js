@@ -1,45 +1,45 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const popup = document.getElementById('gui-popup');
-    const header = document.getElementById('gui-header');
+// Make the DIV element draggable
+dragElement(document.getElementById("gui"));
 
-    let isDragging = false;
-    let offsetX, offsetY;
+function dragElement(elmnt) {
+  var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+  if (document.getElementById("titleBar")) {
+    // Move the DIV from the title bar
+    document.getElementById("titleBar").onmousedown = dragMouseDown;
+  } else {
+    // Move the DIV from anywhere inside the DIV
+    elmnt.onmousedown = dragMouseDown;
+  }
 
-    header.addEventListener('mousedown', (e) => {
-        isDragging = true;
-        offsetX = e.clientX - popup.getBoundingClientRect().left;
-        offsetY = e.clientY - popup.getBoundingClientRect().top;
-    });
+  function dragMouseDown(e) {
+    e = e || window.event;
+    e.preventDefault();
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    document.onmouseup = closeDragElement;
+    document.onmousemove = elementDrag;
+  }
 
-    document.addEventListener('mousemove', (e) => {
-        if (isDragging) {
-            popup.style.left = `${e.clientX - offsetX}px`;
-            popup.style.top = `${e.clientY -Here's the continuation and completion of the enhanced JavaScript (`scripts.js`) for the draggable popup:
+  function elementDrag(e) {
+    e = e || window.event;
+    e.preventDefault();
+    pos1 = pos3 - e.clientX;
+    pos2 = pos4 - e.clientY;
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+  }
 
-```javascript
-            popup.style.left = `${e.clientX - offsetX}px`;
-            popup.style.top = `${e.clientY - offsetY}px`;
-        }
-    });
+  function closeDragElement() {
+    document.onmouseup = null;
+    document.onmousemove = null;
+  }
+}
 
-    document.addEventListener('mouseup', () => {
-        isDragging = false;
-    });
+// Close the GUI when the close button is clicked
+document.getElementById('closeBtn').onclick = function() {
+    document.getElementById('overlay').style.display = 'none';
+};
 
-    const changePrimaryColor = (color) => {
-        document.documentElement.style.setProperty('--primary-color', color);
-        document.documentElement.style.setProperty('--neon-glow', `0 0 10px ${color}, 0 0 20px ${color}`);
-    }
-
-    const changeSecondaryColor = (color) => {
-        document.documentElement.style.setProperty('--secondary-color', color);
-    }
-
-    const closePopup = () => {
-        popup.style.transform = 'translate(-50%, -50%) scale(0)';
-        popup.style.opacity = '0';
-        setTimeout(() => {
-            popup.style.display = 'none';
-        }, 300);
-    }
-});
+// Optionally, add more interactive features and effects here
